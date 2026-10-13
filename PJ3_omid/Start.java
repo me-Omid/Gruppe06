@@ -1,4 +1,3 @@
-
 import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.BoxLayout;
@@ -20,9 +19,11 @@ public class Start {
         window.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         window.setSize(600, 350);
         window.setLocationRelativeTo(null);
+        window.setVisible(true);
 
         JPanel mainpanel = new JPanel(new BorderLayout());
         mainpanel.setBackground(new Color(153, 255, 153));
+        window.add(mainpanel);
 
         // Titel oben zentriert
         JLabel Game_Name = new JLabel("MemX", JLabel.CENTER);
@@ -52,6 +53,9 @@ public class Start {
         info.setMinimumSize(new Dimension(300, 40));
         info.setMaximumSize(new Dimension(300, 40));
         info.setFocusPainted(false);
+        info.addActionListener(e ->{
+        new info();
+        window.dispose();});
         buttonPanel.add(Start);
         buttonPanel.add(Box.createVerticalStrut(20));
         buttonPanel.add(info);
@@ -64,8 +68,6 @@ public class Start {
             "PJ3: Gruppe 6 - Omid -", JLabel.LEFT);
         mainpanel.add(devcredit, BorderLayout.SOUTH);
 
-        window.add(mainpanel);
-        window.setVisible(true);
     }
 }
 
