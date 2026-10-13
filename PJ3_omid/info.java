@@ -47,6 +47,9 @@ public class info {
 
         JButton back = new JButton("Zurück");
         main.add(back, BorderLayout.SOUTH);
+        back.addActionListener(e ->{
+            new Start();
+        });
 
 
 
