@@ -1,16 +1,6 @@
-import javax.swing.JFrame;
-import javax.swing.JLabel;
-import javax.swing.BoxLayout;
-import javax.swing.JButton;
-import javax.swing.JPanel;
-import javax.swing.Box;
 
-import java.awt.BorderLayout;
-import java.awt.Color;
-import java.awt.Component;
-import java.awt.Dimension;
-import java.awt.Font;
-import java.awt.GridBagLayout;
+import java.awt.*;
+import javax.swing.*;
 
 public class Start {
     public static void main(String[] args) {
@@ -18,6 +8,7 @@ public class Start {
         JFrame window = new JFrame("Startseite");
         window.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         window.setSize(600, 350);
+        window.setExtendedState(JFrame.MAXIMIZED_BOTH);
         window.setLocationRelativeTo(null);
         window.setVisible(true);
 
@@ -46,6 +37,9 @@ public class Start {
         Start.setMinimumSize(new Dimension(300, 40));
         Start.setMaximumSize(new Dimension(300, 40));
         Start.setFocusPainted(false);
+        Start.addActionListener(e ->{
+        new Game(3);
+        window.dispose();});
 
         JButton info = new JButton("Spiel Beschreibung");
         info.setBackground(Color.WHITE);

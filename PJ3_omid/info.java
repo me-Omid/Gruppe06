@@ -1,13 +1,4 @@
-import javax.swing.JButton;
-import javax.swing.JFrame;
-import javax.swing.JLabel;
-import javax.swing.JPanel;
-import javax.swing.JTextArea;
-import javax.swing.SwingConstants;
-
-import javafx.scene.layout.Border;
-import javafx.scene.layout.Pane;
-
+import javax.swing.*;
 import java.awt.*;
 public class info {
     public info(){
