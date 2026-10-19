@@ -16,16 +16,18 @@ public class info {
         Game_Name.setFont(new Font("Serif", Font.BOLD, 36));
         main.add(Game_Name, BorderLayout.NORTH);
 
-        JTextArea describtion = new JTextArea(
-            "MemX ist ein Desktop-Spiel, das auf dem bekannten " +
-            "Chimp Test basiert." +
-            "In jeder Runde werden dem Spieler Zahlen in " +
-            "verschiedenen Kästchen für 10 Sekunden angezeigt. " +
-            "Danach verschwinden die Zahlen und der Spieler " +
-            "muss die Kästchen in der korrekten aufsteigenden " +
-            "Reihenfolge anklicken, um die Runde erfolgreich " +
-            "abzuschließen."
-        );
+JTextArea describtion = new JTextArea(
+    "• MemX ist ein Gedächtnisspiel, bei dem Zahlen und " +
+    "ihre Positionen gemerkt werden müssen.\n\n" +
+    "• Zu Beginn jeder Runde werden mehrere Kästchen mit " +
+    "Zahlen angezeigt.\n\n" +
+    "• Beim ersten Klick verschwinden die Zahlen.\n\n" +
+    "• Anschließend müssen die Kästchen in aufsteigender " +
+    "Reihenfolge angeklickt werden, beginnend mit der " +
+    "kleinsten Zahl.\n\n" +
+    "• Mit jeder erfolgreich abgeschlossenen Runde steigt " +
+    "die Schwierigkeit, da weitere Kästchen hinzukommen."
+);
 
         describtion.setBackground(null);
         describtion.setLineWrap(true);
@@ -38,6 +40,7 @@ public class info {
         JPanel back_button = new JPanel(new BorderLayout());
         back_button.setBackground(null);
         JButton back = new JButton("Zurück");     
+        back.setBackground(Color.WHITE);
         back.setMinimumSize(new Dimension(800, 100));
         back.setMaximumSize(new Dimension(800, 100));
         back_button.add(back, BorderLayout.WEST);

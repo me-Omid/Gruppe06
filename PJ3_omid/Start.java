@@ -59,10 +59,7 @@ public class Start {
         exit.setSize(new Dimension(100, 100));
         exit.setAlignmentX(Component.CENTER_ALIGNMENT);
         exit.setPreferredSize(buttDimension);
-        exit.setFocusPainted(false);
-        exit.addActionListener(e ->{
-            System.exit(0);
-        });;
+        
         buttonPanel.add(exit, BorderLayout.SOUTH);
 
         midpanel.add(buttonPanel);
