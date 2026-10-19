@@ -31,11 +31,12 @@ public class Start {
         buttonPanel.setBackground(Color.red);
         buttonPanel.setOpaque(false);
 
+        Dimension buttDimension = new Dimension(150, 30);
+
         JButton Start = new JButton("Start");
         Start.setBackground(Color.WHITE);
         Start.setAlignmentX(Component.CENTER_ALIGNMENT);
-        Start.setMinimumSize(new Dimension(800, 100));
-        Start.setMaximumSize(new Dimension(800, 100));
+        Start.setPreferredSize(buttDimension);
         Start.setFocusPainted(false);
         Start.addActionListener(e ->{
         new Game(3);
@@ -44,8 +45,7 @@ public class Start {
         JButton info = new JButton("Beschreibung");
         info.setBackground(Color.WHITE);
         info.setAlignmentX(Component.CENTER_ALIGNMENT);
-        info.setMinimumSize(new Dimension(800, 100));
-        info.setMaximumSize(new Dimension(800, 100));
+        info.setPreferredSize(buttDimension);
         info.setFocusPainted(false);
         info.addActionListener(e ->{
         new info();
@@ -58,8 +58,7 @@ public class Start {
         exit.setBackground(Color.WHITE);
         exit.setSize(new Dimension(100, 100));
         exit.setAlignmentX(Component.CENTER_ALIGNMENT);
-        exit.setMinimumSize(new Dimension(800, 100));
-        exit.setMaximumSize(new Dimension(800, 100));
+        exit.setPreferredSize(buttDimension);
         exit.setFocusPainted(false);
         exit.addActionListener(e ->{
             System.exit(0);

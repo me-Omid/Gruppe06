@@ -1,19 +1,20 @@
 import java.awt.*;
-import javax.swing.*;
-
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.Random;
+import javax.swing.*;
 //Random
 
 public class Game {
     private int clickedindex = 0;
+    private boolean firstclick = false;
+    private JPanel gamebox;
+
     public Game(int amount){
         JFrame window = new JFrame("Spiel");
         window.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         window.setSize( 800 , 790);
         window.setLocationRelativeTo(null);
-        window.setVisible(true);
 
         JPanel main = new JPanel(new BorderLayout());
         main.setBackground(new Color(153, 255, 153));
@@ -24,7 +25,7 @@ public class Game {
         Game_Name.setFont(new Font("Serif", Font.BOLD, 36));
         main.add(Game_Name, BorderLayout.NORTH);
 
-        JPanel gamebox = new JPanel();
+        gamebox = new JPanel();
         gamebox.setBackground(null);
         gamebox.setLayout(new GridLayout(6, 6, 5, 5));
         gamebox.setSize(new Dimension(500,500));
@@ -60,6 +61,7 @@ public class Game {
             countrandom = 3;
         }
 
+        
         //Schleife zum Platzieren der Kästchen
         for(int i = 1; i <= 36; i++){
             int rand = r.nextInt(countrandom);
@@ -71,19 +73,22 @@ public class Game {
                 gamebox.add(new JButton(String.valueOf(numbers.get(index))){{
                     setBackground(Color.WHITE);
                     addActionListener(e ->{
+                        
 
+                        firstclick = true;
                         if(sortednumbers[clickedindex] == amount && amount == 15){
                             new honor();
                         }
                         else if(sortednumbers[clickedindex] == amount){
                             new win(amount);
+                            window.dispose();
                         }
                         else if(sortednumbers[clickedindex] == numbers.get(index)){
-                            System.out.println("Richtig");
+                            System.out.println(clickedindex);
                             clickedindex++;
                         }
                         else{
-                            new lose();
+                            new lose(amount);
                             window.dispose();
                         }
                     });
@@ -97,22 +102,35 @@ public class Game {
             }
         }
 
-        Timer timer = new Timer(20000, e -> {
-            // Wird nach 10 Sekunden ausgeführt
-            System.out.println("Zeit abgelaufen!");
+        if(firstclick){
+            System.out.println("Jaman");
+        }
 
-            for (Component c : gamebox.getComponents()) {
-                if (c instanceof JButton b) {
-                    b.setText(""); // Button-Text entfernen
-                }
+
+        Timer timer = new Timer(100, e -> {
+            if(firstclick){
+                hide(gamebox);
+
             }
         });
-
-        timer.setRepeats(false); // Nur einmal ausführen
+        if(firstclick){
+            timer.setRepeats(false);
+        }else{
+            timer.setRepeats(true);
+        }
         timer.start();
 
-        
+
+        window.setVisible(true);
+
+    }
 
 
+    public static void hide(JPanel gamebox){
+            for (Component c : gamebox.getComponents()) {
+                if (c instanceof JButton b) {
+                b.setText(""); // Button-Text entfernen
+            }
+        }
     }
 }

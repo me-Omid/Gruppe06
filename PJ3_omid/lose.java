@@ -1,7 +1,7 @@
 import java.awt.*;
 import javax.swing.*;
 public class lose {
-    public lose(){
+    public lose(int amount){
         JFrame window = new JFrame("Verloren");
         window.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         window.setSize(600, 350);
@@ -13,6 +13,7 @@ public class lose {
         window.add(main);
 
         JPanel north = new JPanel(new BorderLayout(0, 0));
+        north.setBackground(null);
         main.add(north, BorderLayout.NORTH);
         JPanel south = new JPanel(new BorderLayout());
         main.add(south, BorderLayout.SOUTH);
@@ -25,29 +26,39 @@ public class lose {
         main.add(center, BorderLayout.CENTER);
 
         JLabel Game_Name = new JLabel("Verloren", JLabel.CENTER);
+        Game_Name.setBackground(null);
         Game_Name.setFont(new Font("Serif", Font.BOLD, 36));
         north.add(Game_Name);
 
 
+        Dimension buttDimension = new Dimension(150, 30);
         JPanel againpanel = new JPanel();
+        againpanel.setBackground(null);
         JButton again = new JButton("Nochmal Spielen");
         again.setAlignmentX(Component.CENTER_ALIGNMENT);
+        again.setBackground(Color.WHITE);
+        again.setPreferredSize(buttDimension);
         again.setMinimumSize(new Dimension(800, 100));
         again.setMaximumSize(new Dimension(800, 100));
         again.setFocusPainted(false);
+        again.addActionListener(e ->{
+            new Game(amount);
+            window.dispose();
+        });
         center.add(againpanel, BorderLayout.NORTH);
         againpanel.add(again, BorderLayout.CENTER);
 
         JPanel exitpanel = new JPanel();
+        exitpanel.setBackground(null);
         JButton exit = new JButton("Verlassen");
         exit.setAlignmentX(Component.CENTER_ALIGNMENT);
+        exit.setBackground(Color.WHITE);
+        exit.setPreferredSize(buttDimension);
         exit.setMinimumSize(new Dimension(800, 100));
         exit.setMaximumSize(new Dimension(800, 100));
         exit.setFocusPainted(false);
         center.add(exitpanel, BorderLayout.CENTER);
-        exitpanel.add(exit, BorderLayout.CENTER);
-
-    
+        exitpanel.add(exit, BorderLayout.CENTER); 
         exit.addActionListener(e ->{
             new Start();
             window.dispose();
