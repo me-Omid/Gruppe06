@@ -8,7 +8,6 @@ public class Start {
         JFrame window = new JFrame("Startseite");
         window.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         window.setSize(600, 350);
-        window.setExtendedState(JFrame.MAXIMIZED_BOTH);
         window.setLocationRelativeTo(null);
         window.setVisible(true);
 
@@ -27,32 +26,45 @@ public class Start {
 
         JPanel buttonPanel = new JPanel();
         buttonPanel.setLayout(
-            new BoxLayout(buttonPanel, BoxLayout.Y_AXIS)
+            new BorderLayout(10,10)
         );
+        buttonPanel.setBackground(Color.red);
         buttonPanel.setOpaque(false);
 
         JButton Start = new JButton("Start");
         Start.setBackground(Color.WHITE);
         Start.setAlignmentX(Component.CENTER_ALIGNMENT);
-        Start.setMinimumSize(new Dimension(300, 40));
-        Start.setMaximumSize(new Dimension(300, 40));
+        Start.setMinimumSize(new Dimension(800, 100));
+        Start.setMaximumSize(new Dimension(800, 100));
         Start.setFocusPainted(false);
         Start.addActionListener(e ->{
         new Game(3);
         window.dispose();});
 
-        JButton info = new JButton("Spiel Beschreibung");
+        JButton info = new JButton("Beschreibung");
         info.setBackground(Color.WHITE);
         info.setAlignmentX(Component.CENTER_ALIGNMENT);
-        info.setMinimumSize(new Dimension(300, 40));
-        info.setMaximumSize(new Dimension(300, 40));
+        info.setMinimumSize(new Dimension(800, 100));
+        info.setMaximumSize(new Dimension(800, 100));
         info.setFocusPainted(false);
         info.addActionListener(e ->{
         new info();
-        window.dispose();});
-        buttonPanel.add(Start);
-        buttonPanel.add(Box.createVerticalStrut(20));
-        buttonPanel.add(info);
+        });
+        buttonPanel.add(Start, BorderLayout.NORTH);
+        buttonPanel.add(info, BorderLayout.CENTER);
+
+
+        JButton exit = new JButton("Verlassen");
+        exit.setBackground(Color.WHITE);
+        exit.setSize(new Dimension(100, 100));
+        exit.setAlignmentX(Component.CENTER_ALIGNMENT);
+        exit.setMinimumSize(new Dimension(800, 100));
+        exit.setMaximumSize(new Dimension(800, 100));
+        exit.setFocusPainted(false);
+        exit.addActionListener(e ->{
+            System.exit(0);
+        });;
+        buttonPanel.add(exit, BorderLayout.SOUTH);
 
         midpanel.add(buttonPanel);
         mainpanel.add(midpanel, BorderLayout.CENTER);

@@ -1,5 +1,5 @@
-import javax.swing.*;
 import java.awt.*;
+import javax.swing.*;
 public class info {
     public info(){
         JFrame window = new JFrame("Info");
@@ -7,7 +7,6 @@ public class info {
         window.setSize(600, 350);
         window.setLocationRelativeTo(null);
         window.setVisible(true);
-
 
         JPanel main = new JPanel(new BorderLayout());
         main.setBackground(new Color(153, 255, 153));
@@ -34,13 +33,21 @@ public class info {
         describtion.setEditable(false);
         describtion.setOpaque(false);
         describtion.setFont(new Font("Arial", Font.PLAIN, 16));
-        main.add(describtion, BorderLayout.WEST);
+        main.add(describtion, BorderLayout.CENTER);
 
-        JButton back = new JButton("Zurück");
-        main.add(back, BorderLayout.SOUTH);
+        JPanel back_button = new JPanel(new BorderLayout());
+        back_button.setBackground(null);
+        JButton back = new JButton("Zurück");     
+        back.setMinimumSize(new Dimension(800, 100));
+        back.setMaximumSize(new Dimension(800, 100));
+        back_button.add(back, BorderLayout.WEST);
+    
         back.addActionListener(e ->{
             new Start();
+            window.dispose();
         });
+
+        main.add(back_button, BorderLayout.SOUTH);
 
 
 
