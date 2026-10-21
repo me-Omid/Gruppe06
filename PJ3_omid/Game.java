@@ -77,6 +77,7 @@ public class Game {
 
                         firstclick = true;
                         if(sortednumbers[clickedindex] == amount && amount == 15){
+                            
                             new honor();
                         }
                         else if(sortednumbers[clickedindex] == amount){
