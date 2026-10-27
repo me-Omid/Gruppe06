@@ -5,11 +5,13 @@ import javax.swing.*;
 public class Start {
     public static void main(String[] args) {
 
+        int amount_nums = 3;
         JFrame window = new JFrame("Startseite");
         window.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         window.setSize(600, 350);
         window.setLocationRelativeTo(null);
         window.setVisible(true);
+
 
         JPanel mainpanel = new JPanel(new BorderLayout());
         mainpanel.setBackground(new Color(153, 255, 153));
@@ -39,11 +41,11 @@ public class Start {
         Start.setPreferredSize(buttDimension);
         Start.setFocusPainted(false);
         Start.addActionListener(e ->{
-        new Game(3);
+        new Game(amount_nums);
         window.dispose();});
 
         JButton info = new JButton("Beschreibung");
-        info.setBackground(Color.WHITE);
+        info.setBackground(Color.WHITE);a
         info.setAlignmentX(Component.CENTER_ALIGNMENT);
         info.setPreferredSize(buttDimension);
         info.setFocusPainted(false);
